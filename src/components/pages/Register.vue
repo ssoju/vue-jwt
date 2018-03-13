@@ -29,7 +29,7 @@
 
             <hr/>
 
-            <div v-show="error" style="color:red; word-wrap:break-word;">{{ error | json }}</div>
+            <div v-show="error" style="color:red; word-wrap:break-word;">{{ error }}</div>
         </form>
     </div>
 </template>

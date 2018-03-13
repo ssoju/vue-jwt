@@ -26,7 +26,7 @@
 
             <hr/>
 
-            <div v-show="error" style="color:red; word-wrap:break-word;">{{ error | json }}</div>
+            <div v-show="error" style="color:red; word-wrap:break-word;">{{ error }}</div>
         </form>
     </div>
 </template>
@@ -61,10 +61,9 @@
                 var redirect = this.$auth.redirect();
 
                 this.$auth.login({
-                    body: this.data.body, // Vue-resource
                     data: this.data.body, // Axios
                     rememberMe: this.data.rememberMe,
-                    redirect: {name: redirect ? redirect.from.name : 'account'},
+                    redirect: {name: redirect ? redirect.from.name : 'default'},
                     fetchUser: this.data.fetchUser
                 })
                 .then(() => {
@@ -72,7 +71,7 @@
                 }, (res) => {
                     console.log('error ' + this.context);
 
-                    this.error = res.data;
+                    this.error = res.message;
                 });
             }
         }

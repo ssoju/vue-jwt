@@ -32,6 +32,12 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    alias: {
+      '@': __dirname + '/src'
+    }
+  },
+
   babel: {
     presets: ['es2015'],
     plugins: ['transform-runtime']
